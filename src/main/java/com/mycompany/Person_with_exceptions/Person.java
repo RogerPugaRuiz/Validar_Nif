@@ -108,7 +108,7 @@ import com.mycompany.Person_with_exceptions.Exceptions.PropertyNotInitializedExc
 	 * @param none
 	 * @return true if @nif is valid, false otherwise
 	 */
-	public boolean isNifValid(){
+	public boolean isNifValid() throws InvalidValueException{
             
                 final String[] LETTERS = {
                         "T","R","W","A","G",
@@ -118,16 +118,28 @@ import com.mycompany.Person_with_exceptions.Exceptions.PropertyNotInitializedExc
                         "C","K","E"}; 
            
                 // divide the number by 23 and get the rest.
-                int number = Integer.parseInt(this.nif.substring(0, 8));
-                String letter = this.nif.substring(8);
-                int resto = number % 23;
-                
-                //check
-                for (int i = 0; i < LETTERS.length; i++){
-                    if (LETTERS[i].equalsIgnoreCase(letter) && resto == i){
-                        return true;
+                if (nif.length() == 9){
+                    String aux = this.nif.substring(0, 8);
+                    try{
+                        int number = Integer.parseInt(aux);
+                        String letter = this.nif.substring(8);
+                        int resto = number % 23;
+
+                        //check
+                        for (int i = 0; i < LETTERS.length; i++){
+                            if (LETTERS[i].equalsIgnoreCase(letter) && resto == i){
+                                return true;
+                            }
+                        }
+                    }catch(NumberFormatException nfe){
+                        throw new InvalidValueException("Nif no valido, contiene elementos que deverian ser numero.");
                     }
+                }else{
+                    throw new InvalidValueException("Nif no valido, no contiene 9 digitos.");
                 }
+                
+                    
+
  
 		return false;
 	}

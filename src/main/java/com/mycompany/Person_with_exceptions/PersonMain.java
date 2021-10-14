@@ -12,8 +12,8 @@ public class PersonMain {
 	
 	public static void main (String args[]) {
 		try {
-			Person a = new Person("12345678Z", "Peter", 20);
-			Person b = new Person();                      
+			Person a = new Person("12345679Z", "Peter", 20);
+			Person b = new Person();
 			System.out.println("Person a: "+a.toString());
 			System.out.println("Person b: "+b.toString());
 			//Attempt to read name
@@ -29,7 +29,7 @@ public class PersonMain {
 			System.out.println("Age of b: "+b.getAge());
 			//Attempt to create new Person
 			Person c = new Person("2345671A", "John", -5);
-			System.out.println("Person c: "+c.toString());                       
+			System.out.println("Person c: "+c.toString());
 		} catch (InvalidValueException ive) {
 			System.out.println(ive.getMessage());			
 		} catch (PropertyNotInitializedException pnie) {
