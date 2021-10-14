@@ -1,0 +1,5 @@
+com/mycompany/Person_with_exceptions/InvalidValueException.class
+com/mycompany/Person_with_exceptions/PersonTester.class
+com/mycompany/Person_with_exceptions/Person.class
+com/mycompany/Person_with_exceptions/PersonMain.class
+com/mycompany/Person_with_exceptions/PropertyNotInitializedException.class
