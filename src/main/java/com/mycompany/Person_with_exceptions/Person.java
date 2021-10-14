@@ -108,9 +108,28 @@ import com.mycompany.Person_with_exceptions.Exceptions.PropertyNotInitializedExc
 	 * @param none
 	 * @return true if @nif is valid, false otherwise
 	 */
-	public boolean isNifValid() {
-		boolean flag = true; //TODO: perform the checkings
-		return flag;
+	public boolean isNifValid(){
+            
+                final String[] LETTERS = {
+                        "T","R","W","A","G",
+                        "M","Y","F","P","D",
+                        "X","B","N","J","Z",
+                        "S","Q","V","H","L",
+                        "C","K","E"}; 
+           
+                // divide the number by 23 and get the rest.
+                int number = Integer.parseInt(this.nif.substring(0, 8));
+                String letter = this.nif.substring(8);
+                int resto = number % 23;
+                
+                //check
+                for (int i = 0; i < LETTERS.length; i++){
+                    if (LETTERS[i].equalsIgnoreCase(letter) && resto == i){
+                        return true;
+                    }
+                }
+ 
+		return false;
 	}
 	/** isAValidNif()
 	 * checks if parameter 'nif' has a valid value for property 'nif'
